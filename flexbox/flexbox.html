@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox practice</title>
+  <link rel="stylesheet" href="flex.css">
+  <style>
+    .container,.container-head,.container1-head{
+     margin: 30px 0;
+     height: 70px;
+    }
+    .container{
+      display: flex;
+      flex-direction: row;
+    }
+    /*1st row*/
+   .div1{
+    background-color: lightblue;
+   
+   }
+   .div2{
+    background-color: pink;
+    
+   }
+
+    /*2nd row*/
+
+   .div3{
+    background-color: lightblue;
+    width: 100px;
+
+
+   }
+   .div4{
+    background-color: pink;
+    flex:1;
+   }
+    /*3rd row*/
+    .div5{
+    background-color: lightblue;
+    width: 100px;
+
+    }
+    .div6{
+      background-color: pink;
+      flex: 1;
+    }
+    .div7{
+      background-color: lightblue;
+      flex: 2;
+    }
+
+
+  </style>
+</head>
+<body>
+  <!--flexible content use as chaning the position of items will not have an effect on the the width of the element
+  which helps in having a flexible header, and even flexible main and more... 
+in css grid, the layout is more rigid, stable. -->
+  <div class="container">
+    <div class="div1">Div1 <p>text</p></div>
+    <div class="div2">Div2</div>
+  </div>
+
+  <div class="container">
+    <div class="div3">Div1 <p>text</p></div>
+    <div class="div4">Div2</div>
+  </div>
+
+  <div class="container">
+    <div class="div5">Div1 <p>text</p></div>
+    <div class="div6">Div2</div>
+    <div class="div7">flex</div>
+  </div>
+
+  <div class="container-head">
+    <div class="div8">Div1 <p>text</p></div>
+    <div class="div9">Div2</div>
+    <div class="div10">flex</div>
+  </div>
+
+  <div class="container1-head">
+    <div class="div11">Div1 </div>
+    <div class="div12">Div2</div>
+    <div class="div13">flex</div>
+  </div>
+</body>
+</html>

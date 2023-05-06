@@ -1,0 +1,182 @@
+
+.container{
+  margin: 0 auto; 
+  min-width: 1024px;
+  min-height: 1000px;
+
+
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right:0;
+  left: 0;
+  background-color: white;
+  border-bottom-width:1px ;
+  border-bottom-style: solid;
+  border-bottom-color: grey;
+
+}
+/*Left-section*/
+  .Left{
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  }
+
+  .football-image{
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+  }
+
+  .burger{
+    height: 45px;
+    margin-right:17px;
+    margin-left: 20px;
+
+  }
+  .website-name{
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 40px;
+    font-family: 'Source Sans Pro', sans-serif;
+    color:black;
+    font-weight: 400;
+    min-width: fit-content;
+    
+    
+  }
+  .website-name:hover{
+    opacity: 0.8;
+  }
+  .website-name:active{
+    opacity:0.5;
+  }
+
+/*middle-section*/
+
+  .Middle{
+    flex:1.5;
+
+    margin-left: 50px;
+    margin-right: 25px;
+    min-width: 100px;
+    max-width:500px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+    }
+   .search-form{
+    display: flex;
+    width: 100%;
+    }
+  
+  /*search bar styling*/
+  .search{
+    padding: 10px; /*inside styling*/
+    border-width: 1px;
+    border-style: solid;
+    font-size: 1.3rem;
+    margin-right: 0px;
+    flex: 1;
+    width: 0;
+    
+    
+  }
+  .search::placeholder{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 24px;
+  }
+  .search-icon{
+    background-image: url("images/Icons/search.svg");
+    background-repeat: no-repeat;
+    min-width: 45px;
+    min-height: 45px;
+   background-size: 35px;
+   padding: 0 30px;
+   background-position: center;
+   background-color: rgb(247, 247, 247);
+  }
+
+  .search,.search-icon{
+    border-width: 1px;
+    border-color:(192,192,192);
+    border-style: solid;
+    border-radius: 2px;
+    box-shadow: inset 1px 2px 3px rgba(0,0,0,0.02) ; 
+  }
+  .search-icon:active{
+    background-color: grey;
+    opacity: 0.5;
+  }
+
+
+
+
+
+ /*right-section*/
+  .Right{
+  display: flex;
+  column-gap: 55px;
+  justify-content:baseline;
+  align-items: center;
+  font-size: 1.2rem;
+  margin-right:20px;
+
+ /*the font from google font*/ 
+  font-family: 'Source Sans Pro', sans-serif;
+  
+ 
+  
+  }
+  /*anchor element design*/
+  .menu-link{
+    color:black;
+    text-decoration: none;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    min-width: fit-content;
+    
+
+  }
+  .menu-link:hover{
+    opacity:0.7;
+    text-decoration: underline;
+  }
+  .menu-link:active{
+    opacity:0.3;
+  }
+
+
+
+  .home-box,.quiz-box,.jokes-box,.fact-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    
+
+  }
+
+  .Right i {
+    font-size: 18px;
+    padding: 3px;
+  }
+
+
+
+
+
+
+
+
+
+
