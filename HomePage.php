@@ -3,10 +3,6 @@
   //require 'requiredFiles/check_login.php';
   require('requiredFiles/header.php');
   require('requiredFiles/sidebar.php');
- 
-
-
-  echo "this is the edit we added.";
 ?>
 
 
