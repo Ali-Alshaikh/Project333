@@ -1,0 +1,107 @@
+.container {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 20px;
+	text-align: center;
+
+
+}
+
+h1 {
+	font-size: 36px;
+	margin-bottom: 20px;
+}
+
+form {
+	display: flex; 
+	align-items: center;
+	vertical-align: center;
+	flex-direction: column;
+	row-gap: 10px;
+}
+
+label {
+	display: block;
+	margin-bottom: 10px;
+	font-size: 18px;
+}
+
+input[type="text"], textarea {
+	display: block;
+	width: 400px;
+	padding: 5px;
+	margin-bottom: 20px;
+	font-size: 18px;
+}
+
+select {
+	padding: 10px;
+	font-size: 18px;
+}
+
+input[type="submit"] {
+	background-color: #4CAF50;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+input[type="submit"]:hover {
+	background-color: #3e8e41;
+}
+
+ul {
+	list-style-type: none;
+	padding: 0;
+	margin-bottom: 20px;
+}
+
+li {
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+
+
+.question-box{
+	width: 50%;
+	border:1px solid black;
+	text-align: center;
+	padding-right: 50px ;
+	padding-left: 50px;
+
+}
+.box1-container{
+	display: flex;
+	align-items: center;
+	vertical-align: center;
+	width: 100%;
+	background-color: white;
+	justify-content: center;
+	min-height: 300px;
+	border: 1px solid grey;
+	
+}
+
+.links-box1{
+	display: flex;
+	background-color: aqua;
+	flex-direction: column;
+	row-gap: 10px;
+	border: 1px solid grey;
+	padding:90px;
+
+}
+.links-box1 > a{
+	text-decoration: none;
+	color: rgb(94, 93, 93);
+}
+.links-box1 > a:hover{
+	opacity: 0.7;
+}
+.links-box1 > a:active{
+	opacity: 0.3;
+}
+
