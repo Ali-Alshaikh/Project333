@@ -1,5 +1,6 @@
 <!--Done by: Ali Alshaikh-->
 <?php
+  require('requiredFiles/check_login.php');
   //require 'requiredFiles/check_login.php';
   require('requiredFiles/header_admin.php');
   require('requiredFiles/sidebar_admin.php');
@@ -66,6 +67,6 @@
 </div>
 
 <?php
-  require('requiredFiles/footer.php');
+  require('requiredFiles/footer_admin.php');
 
 ?>

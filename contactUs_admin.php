@@ -1,6 +1,7 @@
 <?php 
   require('requiredFiles/check_login.php');
-  require('requiredFiles/header.php');
+	require('requiredFiles/check_admin.php');
+  require('requiredFiles/header_admin.php');
 ?>
 <style>
 		body {
@@ -81,7 +82,7 @@
 
 	<?php 
 	
-  require('requiredFiles/footer.php');
+  require('requiredFiles/footer_admin.php');
 
 	?>
 

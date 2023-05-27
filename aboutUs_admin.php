@@ -1,6 +1,7 @@
 <?php 
   require('requiredFiles/check_login.php');
-  require('requiredFiles/header.php');
+	require('requiredFiles/check_admin.php');
+  require('requiredFiles/header_admin.php');
 ?>
 	<style>
 		body {
@@ -100,6 +101,6 @@
 	</div>
 
 
-<?php   require('requiredFiles/footer.php');
+<?php   require('requiredFiles/footer_admin.php');
 ?>
 

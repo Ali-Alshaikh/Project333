@@ -30,14 +30,14 @@
         <div class="Left">
           <img class="burger" src="styles/images/Icons/hamburger-menu.svg">
           <img class="football-image" src="styles/images/Logo/champions-league football.png" >
-          <a class="website-name" href="HomePage.php" >Questionaire Website</a>
+          <a class="website-name" href="HomePage_admin.php" >Questionaire Website</a>
         </div>
      
         <div class="Right">
           
             <div class="home-box">
               <i class="fa-solid fa-house home"></i>
-              <a href="HomePage.php" class="menu-link">Home</a>
+              <a href="HomePage_admin.php" class="menu-link">Home</a>
             </div>
             <div class="quiz-box">
               <i class="fa-solid fa-circle-question"></i>
@@ -46,13 +46,13 @@
             
             <div class="jokes-box">
               <i class="fa-regular fa-face-laugh-squint"></i>
-              <a href="jokes2.php"  class="menu-link">Jokes</a>
+              <a href="jokes_admin.php"  class="menu-link">Jokes</a>
               
             </div>
             
             <div class="fact-box">
               <i class="fa-regular fa-lightbulb"></i>
-              <a href="facts.php"  class="menu-link">Facts</a>
+              <a href="facts_admin.php"  class="menu-link">Facts</a>
             </div>
 
  

@@ -7,7 +7,7 @@
     
 
     if(!isset($user_id)){
-        header('location:login2.php');
+        header('location:index.php');
     }
     ?>
 

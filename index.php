@@ -94,7 +94,7 @@ require('requiredFiles/test_input.php');
       visibility: visible;
     }
 
-    .form button {
+    .form button,button {
       cursor: pointer;
       background-color: #04AA6D;
       border: 2px solid #04AA6D;
@@ -106,7 +106,7 @@ require('requiredFiles/test_input.php');
       margin-top: 20px;
       width: 100%;
     }
-    .form button a{
+     button a{
       text-decoration: none;
       color: white;
     }
@@ -160,6 +160,7 @@ require('requiredFiles/test_input.php');
           if($rows)
           {
             
+            /*
             //username exits
             if(password_verify($pass,$rows[2]))
             {
@@ -171,18 +172,22 @@ require('requiredFiles/test_input.php');
               }
 
             } //end of the username and password check 
+            */
            
 
             //another technique
             if($pass == $rows[2])
             {
-              while($rows){
-                if($rows[3]=='admin')
+              $_SESSION['activeUser'] = $rows[0];
+              //while($rows){
+                if($rows[3]=='admin'){
+                  $_SESSION['admin'] = 1;
                   header("location:HomePage_admin.php");
+                }
                 else if($rows[3]=='regular')
                   header("location:HomePage.php");
-                  die("sup");
-              }
+                  
+              //}
 
             } //end of the username and password check 
 
@@ -219,8 +224,9 @@ require('requiredFiles/test_input.php');
           <small>Error message</small>
         </div>
         <button type="submit" name="sbtn">Sign In</button>
-        <button type="button"><a href="signup2.php">Signup?</a></button>
+        
       </form>
+      <button type=""><a href="signup2.php">Signup?</a></button>
     </div>
 
 

@@ -177,7 +177,7 @@ h2 {
           $result = $db->exec($sql);
           if ($result == 1){
               echo "<h3 style='color:red;text-align:center'>Successful editing</h3>";
-                header("location:login2.php");
+                header("location:index.php");
               }
 
           elseif ($result == 0) {

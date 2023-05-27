@@ -1,20 +1,31 @@
 <?php
     session_start();
-    require('requiredFiles/connection.php');
+   
     
 
     $user_id = $_SESSION['activeUser'];
     
     if(!isset($user_id)){
-        header('location:login2.php');
+        header('location:index.php');
     }
 
-    $select = $db->prepare( "SELECT * FROM `users` WHERE `id` = $user_id");
-            $select->execute() or die('query failed');
+    try{
+        require('requiredFiles/connection.php');
+        $select = $db->prepare( "SELECT * FROM `users` WHERE `id` = $user_id");
+            $select->execute();
 
             $result = $select->fetch();
 
             $user_name = $result['username'];
+
+    }
+
+    catch(PDOException $e){
+        die("Error:".$e->getMessage());
+
+    }
+
+    
 
     if (isset($_POST['submit'])) {
         $new_username = $_POST['new_username'];
@@ -33,6 +44,18 @@
             $errors['new_password'] = "Please enter a new password.";
         } else if (strlen($new_password) < 8 || strlen($new_password) > 50) {
             $errors['new_password'] = "Password must be between 8 and 50 characters.";
+        }
+
+        $sql1="select * from users";
+        $s = $db->prepare($sql1);
+        $s->execute();
+        $rows = $s->fetchAll(PDO::FETCH_NUM);
+
+        
+        foreach($rows as $row){
+          if($row[1]==$new_username){
+            die("Error: this username exits");
+          }
         }
 
         if (count($errors) == 0) {

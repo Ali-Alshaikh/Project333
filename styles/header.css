@@ -179,11 +179,10 @@
     /* Default styles */
     .header {
       display: flex;
-flex-direction: row;
+      flex-direction: row;
       align-items: center;
       justify-content: space-between;
-      background-color: #333;
-      color: #fff;
+      color: grey;
       padding: 20px;
     }
 
@@ -193,7 +192,7 @@ flex-direction: row;
     }
 
     .football-image {
-      height: 50px;
+      height: 70px;
       margin-right: 10px;
     }
 
@@ -201,7 +200,7 @@ flex-direction: row;
       font-size: 22px;
       font-weight: 700;
       text-decoration: none;
-      color: #fff;
+      color: grey;
     }
 
     .Right {
@@ -212,7 +211,7 @@ flex-direction: row;
 
     .menu-link {
       text-decoration: none;
-      color: #fff;
+      color: grey;
       margin-left: 10px;
       font-size: 18px;
       font-weight: 400;

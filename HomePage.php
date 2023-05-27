@@ -1,8 +1,11 @@
 <!--Done by: Ali Alshaikh-->
 <?php
   //require 'requiredFiles/check_login.php';
+  require('requiredFiles/check_login.php');
+  
   require('requiredFiles/header.php');
   require('requiredFiles/sidebar.php');
+  
 ?>
 
 
