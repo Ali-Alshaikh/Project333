@@ -13,5 +13,19 @@
         <div>Help</div>
       </a>
             
+      <a href="Questionaire/reports.php" target="_blank" class="box-link">
+      <i class="fa-solid fa-square-poll-vertical"></i>
+        <div > reports</div>
+      </a>
+
+
+      <a href="Questionaire/QCadmin.php" target="_blank" class="box-link">
+      <i class="fa-solid fa-plus"></i>
+        <div >Create</div>
+      </a>
+            
+
+
+
 
     </div>
