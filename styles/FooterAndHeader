@@ -1,0 +1,169 @@
+/* footer part */
+
+  .footer {
+    background-color: #f2f2f2;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .menu-link {
+    color: #333;
+    text-decoration: none;
+    margin-right: 20px;
+  }
+
+  .poweredBy {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  /* Media queries for smaller screens */
+  @media only screen and (max-width: 768px) {
+    .footer {
+      flex-direction: column;
+      align-items: center;
+    }
+    .menu-link{
+      margin: 10px 0;
+    }
+  }
+
+  /* Media queries for medium screens */
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .menu-link {
+      margin-right: 10px;
+    }
+  }
+
+  /* Media queries for larger screens */
+  @media only screen and (min-width: 1024px) {
+    .menu-link {
+      margin-right: 20px;
+    }
+  }
+
+
+
+/* header part */
+
+
+
+    /* Default styles */
+    .header {
+      display: flex;
+flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+    }
+
+    .Left {
+      display: flex;
+      align-items: center;
+    }
+
+    .football-image {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    .website-name {
+      font-size: 22px;
+      font-weight: 700;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .Right {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .menu-link {
+      text-decoration: none;
+      color: #fff;
+      margin-left: 10px;
+      font-size: 18px;
+      font-weight: 400;
+    }
+
+    .home-box,
+    .quiz-box,
+    .jokes-box,
+    .fact-box {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin: 0 10px;
+    }
+
+    .home-box:hover,
+    .quiz-box:hover,
+    .jokes-box:hover,
+    .fact-box:hover {
+      cursor: pointer;
+    }
+
+    /* Media queries */
+    @media only screen and (max-width: 768px) {
+      .Left {
+        margin-right: auto;
+      }
+
+      .burger {
+        display: block;
+      }
+
+      .Right {
+        display: none;
+      }
+
+      .website-name {
+        font-size: 18px;
+      }
+
+      .header {
+        padding: 10px;
+      }
+
+      .football-image {
+        height: 40px;
+      }
+
+      .menu-link {
+        font-size: 16px;
+      }
+    }
+
+    @media only screen and (min-width: 769px) and (max-width: 1024px) {
+      .menu-link {
+        font-size: 16px;
+      }
+
+      .football-image {
+        height: 45px;
+      }
+
+      .website-name {
+        font-size: 20px;
+      }
+    }
+
+    @media only screen and (min-width: 1025px) {
+      .menu-link {
+        font-size: 18px;
+      }
+
+      .football-image {
+        height: 50px;
+      }
+
+      .website-name {
+        font-size: 22px;
+      }
+    }
