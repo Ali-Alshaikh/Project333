@@ -1,5 +1,9 @@
 <!--Add the necessary tables to make thing work here! -->
+<?php
+ session_start();
+require('requiredFiles/test_input.php');
 
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -102,15 +106,19 @@
       margin-top: 20px;
       width: 100%;
     }
+    .form button a{
+      text-decoration: none;
+      color: white;
+    }
 
     </style>
 
   </head>
   <body>
     <?php
-    session_start();
+   
+   //validating something
     $msg="";
-
     if(isset($_GET['error']))
     {  if ($_GET['error']==1)
           $msg="<p style='color:red;'>You must login first</p>";
@@ -119,37 +127,77 @@
     }
     echo $msg;
 
+
+
+//checking the button to start working php, and validating
     if (isset($_POST['sbtn'])){
-      $uname = $_POST['un'];
-      $pass = $_POST['ps'];
-      //Validation will be kept for you as an exercise
+      $uname = test_input($_POST['un']);
+      $pass = test_input($_POST['ps']);
+
+      if(empty($uname)||empty($pass)){
+        die("Error: no input should be left empty");
+      }
+
+      //regular expressions
+      $pattUn = "/^[a-zA-Z0-9\_\-\@]{3,10}$/";
+      $pattPass = "/^[a-zA-Z0-9\@\#]{3,10}$/";
+
+      if(preg_match($pattUn,$uname)!= 1){
+        die("please enter a proper username");
+      }
+
+      if(preg_match($pattPass,$pass)!= 1){
+        die("please enter a proper password");
+      }
+
+
       try {
           require('requiredFiles/connection.php');
-          $rs=$db->query("select * from users");
-          $id=0;
-          foreach($rs as $row)
+          $sql="select * from users where username ='$uname'";
+          $rs=$db->prepare($sql);
+          $rs->execute();
+          $rows =$rs->fetch(PDO::FETCH_NUM);
+          if($rows)
           {
-            if($row[1]==$uname && $pass==$row[2])
+            
+            //username exits
+            if(password_verify($pass,$rows[2]))
             {
-            $r=$db->query("select id from users where username='$row[1]'");
-                 foreach($r as $ro)
-               $id=$ro[0];
-               $user=$row[1];
-                 $_SESSION['activeUser']=$id;
-                 $_SESSION['username']=$user;
+              foreach($rows as $row){
+                if($row[3]=='admin')
+                  header("location:HomePage_admin.php");
+                else if($row[3]=='regular')
+                  header("location:HomePage.php");
+              }
 
+            } //end of the username and password check 
+           
 
-            if($row[3]=='admin')
-              header("location:adminpage.php");
-            else if($row[3]=='regular')
-              header("location:project333.php");
+            //another technique
+            if($pass == $rows[2])
+            {
+              while($rows){
+                if($rows[3]=='admin')
+                  header("location:HomePage_admin.php");
+                else if($rows[3]=='regular')
+                  header("location:HomePage.php");
+                  die("sup");
+              }
+
+            } //end of the username and password check 
+
+            if($pass != $rows[2]){
+              die('Error:wrong password!');
             }
-                else
-              echo "<p> password or username is wrong</p>";
-
           }
 
+          else{
+            die("<br>please check your login details<br>");
+          }
+          
 
+
+          
           $db=null;
       }
       catch(PDOException $e){
@@ -171,6 +219,7 @@
           <small>Error message</small>
         </div>
         <button type="submit" name="sbtn">Sign In</button>
+        <button type="button"><a href="signup2.php">Signup?</a></button>
       </form>
     </div>
 

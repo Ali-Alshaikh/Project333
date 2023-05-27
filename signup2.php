@@ -1,3 +1,9 @@
+<?php
+
+require('requiredFiles/test_input.php');
+
+?>
+
 <!--
 
 create the necessay database table so this page will work, refer to requiredFiles/connection.php
@@ -115,20 +121,59 @@ h2 {
   <body>
     <?php
     if (isset($_POST['submit'])){
-      $uname = $_POST['un'];
-      $pass = $_POST['ps'];
-      $cpass = $_POST['cps'];
+      $uname = test_input($_POST['un']);
+      $pass = test_input($_POST['ps']);
+      $cpass = test_input($_POST['cps']);
 
+    if(empty($uname)||empty($pass)||empty($cpass)){
+        die("Error: no input should be left empty");
+      }
+
+
+    //regular expressions
+      $pattUn = "/^[a-zA-Z0-9\_\-\@]{3,10}$/";
+      $pattPass = "/^[a-zA-Z0-9\@\#]{3,10}$/";
+      if(preg_match($pattUn,$uname)!= 1){
+        die("please enter a proper username");
+      }
+
+      if(preg_match($pattPass,$pass)!= 1){
+        die("please enter a proper password");
+      }
+
+        if(preg_match($pattPass,$cpass)!= 1){
+        die("please enter a proper confirm password");
+      }
+
+    
+
+
+      ?>
+      <?php
       //Validation will be kept for you as an exercise
       //check name, username, password, cpassword, and the proceed
       try {
-          require('requriedFiles/connection.php');
+          require('requiredFiles/connection.php');
+          $sql1="select * from users";
+          $s = $db->prepare($sql1);
+          $s->execute();
+          $rows = $s->fetchAll(PDO::FETCH_NUM);
+
+          
+          foreach($rows as $row){
+            if($row[1]==$uname){
+              die("Error: this username exits");
+            }
+          }
+          
+
           $sql = "insert into users values (
                     null,
                     '$uname',
                     '$pass',
                     'regular'
             )";
+            
           $result = $db->exec($sql);
           if ($result == 1){
               echo "<h3 style='color:red;text-align:center'>Successful editing</h3>";
@@ -138,12 +183,15 @@ h2 {
           elseif ($result == 0) {
             echo "<h1>the user name is not exists</h1>";
           }
+
+          $db=null;
       }
       catch(PDOException $e){
 
-          die($e->getMessage());  }
+          die($e->getMessage());  
+        }
 
-      $db=null;
+      
     }
     ?>
 
