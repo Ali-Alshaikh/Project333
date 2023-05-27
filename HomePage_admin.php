@@ -12,8 +12,9 @@
   <main class="main-section">
       <div class="top">
         <div class="left-section">
-          <p>Welcome to <b>Questionaire Website</b>, this website will contain 4 types of questionaires that is: 
-            <span class="yellow"> MCQ's, Short, YES/NO, range scale</span> that will allow you to share your <span class="highlight"> <b>answers</b>.</span> 
+          <p>Welcome to <b>Football Quizes</b>, this website will test your 
+            <span class="yellow">footballing knowledge</span> and will allow to discover <span class="highlight">how much you know
+              about <b>Football</b>.</span> 
           </p>
          
         </div>

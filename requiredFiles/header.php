@@ -30,7 +30,7 @@
         <div class="Left">
           <img class="burger" src="styles/images/Icons/hamburger-menu.svg">
           <img class="football-image" src="styles/images/Logo/champions-league football.png" >
-          <a class="website-name" href="HomePage.php" >Football Quizes</a>
+          <a class="website-name" href="HomePage.php" >Questionaire Website</a>
         </div>
      
         <div class="Right">
@@ -41,7 +41,7 @@
             </div>
             <div class="quiz-box">
               <i class="fa-solid fa-circle-question"></i>
-              <a href="#" class="menu-link">Quizes</a>
+              <a href="Questionaire/Quser.php" target="_blank" class="menu-link">Quizes</a>
             </div>
             
             <div class="jokes-box">
