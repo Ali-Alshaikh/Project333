@@ -38,7 +38,7 @@
           <p> This is a quick quiz on your 
             knowledge to how well you know football
           </p>
-          <img class="champions" src="styles/images/quiz-thumbnail/medium_5719174e-7929-48eb-bdf4-c1cb35ed3293.jpg">
+          <img class="champions" id="one" src="styles/images/quiz-thumbnail/medium_5719174e-7929-48eb-bdf4-c1cb35ed3293.jpg">
         </a>
       </div>
 

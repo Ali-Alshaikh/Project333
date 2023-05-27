@@ -2,10 +2,10 @@
 <footer class="footer">
     <div class="footer-menu">
       <!--i used the same class for the header to save time and effort-->
-      <a href="#"  class = "menu-link">FAQs</a>
+      <a href="requiredFiles/underCons.php"  class = "menu-link">FAQs</a>
       <a href="aboutUs.php"  class = "menu-link">About Us</a>
       <a href="contactUs.php"  class = "menu-link">Contact Us</a>
-      <a href="#" class = "menu-link">Tell Us Your Opinion</a>
+      <a href="requiredFiles/underCons.php" class = "menu-link">Tell Us Your Opinion</a>
 
 
     </div>

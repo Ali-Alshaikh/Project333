@@ -59,6 +59,7 @@
     opacity:0.5;
   }
 
+
 /*middle-section*/
 
   .Middle{
@@ -172,8 +173,17 @@
   }
 
 
+  @media(max-width:768px){
+    .header{
+      width: 92%;
+    }
+  }
 
-
+@media(max-width:400px){
+  .header{
+    width: 73%;
+  }
+}
 
 
 
