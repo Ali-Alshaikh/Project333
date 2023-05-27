@@ -1,5 +1,8 @@
 <?php //it works!!
 session_start();
+if(!isset($_SESSION['yes'])){die("Error: please visit the 'Homepage.php' and 
+  create the yes/no questionaire properly ");}
+
 $uniqueNum = $_SESSION['yes'];
 /*
     //put a header so that the user cannot see this page
@@ -11,9 +14,12 @@ $uniqueNum = $_SESSION['yes'];
     $response =0;
     if(isset($_POST['sb'])){
       //insert the answers to the database!
+      /*
+      Done in the Yes_No reports page
       //calculate the number of responses 
       //calculate the average of yes 
       //calculate the average of the No answers 
+      */
       try{
         require('../connection.php');
         $sql="insert into yes_no_Ans values(null,:qid,:answer,:unique)"; //finally it works
@@ -32,10 +38,27 @@ $uniqueNum = $_SESSION['yes'];
         
 
         $id = $_POST['id']; //this is an array
+        //id validation
+        if(empty($id)){
+          die('Error: no id is avaliable...');
+        }
+  
+
+
+
+
+      //validate the answers
+      for($i =0 ;$i<count($id);$i++){
+        $a = 'answer'.$i;
+        if(empty($_POST[$a])){
+          die('<br>Error: no answer in short should be left empty <br>');
+        } 
+
+        //$answer= $_POST[$a]; 
+       
+      }//end of the for loop for validating the answers
+
         $check =0;
-        $num_id = 0;
-        $countYes=0;
-        $countNo=0;
        
         //ALHAMDULLIAH IT WORKS
         foreach($rows as $row){
@@ -65,6 +88,11 @@ $uniqueNum = $_SESSION['yes'];
       echo "your answers have been saved successfully!<bR>";
 
       $_SESSION['nQuestions'] = $check;
+
+
+      header("location:../Quser.php");
+
+
 
       
     }

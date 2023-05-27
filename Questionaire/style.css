@@ -1,9 +1,9 @@
 .container {
-	max-width: 800px;
+	min-width: 800px;
 	margin: 0 auto;
 	padding: 20px;
-	text-align: center;
 
+	text-align: center;
 
 }
 
@@ -28,7 +28,7 @@ label {
 
 input[type="text"], textarea {
 	display: block;
-	width: 400px;
+	width: 100%;
 	padding: 5px;
 	margin-bottom: 20px;
 	font-size: 18px;
@@ -72,6 +72,7 @@ li {
 	padding-right: 50px ;
 	padding-left: 50px;
 
+
 }
 .box1-container{
 	display: flex;
@@ -81,13 +82,13 @@ li {
 	background-color: white;
 	justify-content: center;
 	min-height: 300px;
-	border: 1px solid grey;
+	
 	
 }
 
 .links-box1{
 	display: flex;
-	background-color: aqua;
+
 	flex-direction: column;
 	row-gap: 10px;
 	border: 1px solid grey;
@@ -105,3 +106,34 @@ li {
 	opacity: 0.3;
 }
 
+.short-text{
+	border: 1px solid rgb(232, 228, 228);
+	height: 100px;
+
+}
+
+/*tablet view*/
+@media (max-width:768px) {
+	
+	.question-box{
+		width:40%;
+	}
+	.question-box > input,p{
+		width: 100%;
+	}
+
+
+}
+
+/*mobile view*/
+@media (max-width:400px) {
+	
+	.question-box{
+		width:100%;
+	}
+	.question-box > input,p{
+		width: 100%;
+	}
+
+
+}

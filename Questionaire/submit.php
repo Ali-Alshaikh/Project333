@@ -24,7 +24,7 @@ catch(PDOException $e){
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<div class="container">
+<div class="container">
 		<h1>Questionnaire Generator</h1>
 		<?php
 
@@ -34,9 +34,11 @@ if(isset($_POST['done'])){
       $type = $_POST['type']; //already validated in the generate.php
       $qnum = $_POST['qnum'];//already validated in the generate.php
       $uniqueNum = $_POST['unique']; //already validated in the generate.php
-      $options = $_POST['option']; //needs validation
+     
       
 			if($type =='multiple_choice'){
+
+        $options = $_POST['option']; //needs validation
 
         //validate the questions 
         //check the questions
@@ -46,7 +48,7 @@ if(isset($_POST['done'])){
         
           if(empty($question)){ die('no question can be left empty!'); }
         
-          $pattQuestion ="/^[a-zA-Z0-9\?\-\s]*$/";
+          $pattQuestion ="/^[a-zA-Z0-9\?\-\s\,]*$/";
           if(preg_match($pattQuestion,$question)!= 1){
             die('please enter a question of the appropriate format!');
           }
@@ -156,7 +158,8 @@ if(isset($_POST['done'])){
         </form>
         <?php
         $_SESSION['MC_uniqueNum']=$uniqueNum;
-         header("location:Createquestionaires.html"); //redirects me -----------------------------------
+        $_SESSION['qnum_MCQ']=$qnum;
+        header("location:QCadmin.php"); //redirects me -----------------------------------
 
     } //end of if $type multiple_choice ----------------------------------------------------------------
 
@@ -181,7 +184,7 @@ if(isset($_POST['done'])){
 
             if(empty($question)){ die('no question can be left empty!'); }
 
-            $pattQuestion ="/^[a-zA-Z\?\-\s]*$/";
+            $pattQuestion ="/^[a-zA-Z0-9\?\-\s\,]*$/";
             if(preg_match($pattQuestion,$question)!= 1){
               die('please enter a question of the appropriate format!');
             }
@@ -200,10 +203,102 @@ if(isset($_POST['done'])){
           }
           $_SESSION['yes'] = $uniqueNum; //we can remove the questions and add new ones. -- use doctor example as refrence.. 
           $_SESSION['qnum'] = $qnum;
+          $_SESSION['yes_qnum'] = $qnum;
           
-          header("location:Createquestionaires.html");
-        }
+          header("location:QCadmin.php");
+        } //end of ------------------------------YES/NO QUESTIONAIRE-------------------------------------------------------------
 
+
+        if($type=="short"){
+
+          try{
+            require('connection.php');
+            //insert the questions to the short table
+            $sql='insert into short values(null,:ques,:uniqueNum)';
+            $s = $db->prepare($sql);
+            $s->bindParam(':ques',$question);
+            $s->bindParam(':uniqueNum',$uniqueNum);
+          }
+          catch(PDOException $e){
+            die('Error:'.$e->getMessage());
+          }
+
+          //check the questions
+          for($i =1;$i<=$qnum;$i++){
+            $q = 'question'.$i; //validate the question to prevent sql injection! slide 223, it's done!
+            $question = test_input($_POST[$q]);
+
+            if(empty($question)){ die('no question can be left empty!'); }
+
+            $pattQuestion ="/^[a-zA-Z0-9\?\-\s\,]*$/"; //no speacial characters are allowed to be used
+            if(preg_match($pattQuestion,$question)!= 1){
+              die('please enter a question of the appropriate format!');
+            }
+          }
+
+          $shortRows = 0; 
+          //insert the questions and other values to the database!
+          for($i =1;$i<=$qnum;$i++){
+            $q = 'question'.$i;
+            $question =$_POST[$q]; 
+            $s->execute(); 
+            $shortRows +=$s->rowCount();
+          }
+          $_SESSION['yes_uni'] = $uniqueNum; //we can remove the questions and add new ones. -- use doctor example as refrence.. 
+          $_SESSION['qnum'] = $qnum;
+          $_SESSION['short_qnum'] = $qnum;
+          header("location:QCadmin.php");
+
+      
+        }//end of ------------------------------short QUESTIONAIRE-------------------------------------------------------------
+
+
+
+        if($type == 'range'){
+          try{
+            require("connection.php");
+            $sql= "insert into scale values(null,:question,'1','2','3','4','5',:uniqueNum)";
+            $stmt1= $db->prepare($sql);
+            $stmt1->bindParam(':question',$question);
+            $stmt1->bindParam(':uniqueNum',$uniqueNum);
+          }
+
+          catch(PDOException $e){
+            die("Error:".$e->getMessage());
+          }
+
+          //check the questions
+          for($i =1;$i<=$qnum;$i++){
+            $q = 'question'.$i; //validate the question to prevent sql injection! slide 223, it's done!
+            $question = test_input($_POST[$q]);
+
+            if(empty($question)){ die('no question can be left empty!'); }
+            
+            //regular expression, using regExr website!
+            $pattQuestion ="/^[a-zA-Z0-9\?\-\s\,]*$/";
+            if(preg_match($pattQuestion,$question)!= 1){
+              echo "$question";
+              die('please enter a question of the appropriate format!');
+            }
+          }
+
+
+          for($i =1;$i<=$qnum;$i++){
+              $q = 'question'.$i; //validate the question to prevent sql injection! slide 223, it's done!
+            
+              $question = test_input($_POST[$q]);
+
+              $stmt1->execute();
+              $row = $stmt1->rowCount();
+              echo $row."inserted successfully!";
+            
+          }
+          $_SESSION['range_uni'] = $uniqueNum; //we can remove the questions and add new ones. -- use doctor example as refrence.. 
+          $_SESSION['qnum'] = $qnum;
+          $_SESSION['range_qnum'] = $qnum;
+          
+          header("location:QCadmin.php");
+        } //end of ------------------------------Range QUESTIONAIRE-------------------------------------------------------------
 
 
 

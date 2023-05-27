@@ -101,21 +101,57 @@ require('test_input.php');
             </form> <!--end of the form for yes/no-->
             <?php
         }
-          /*
-				case 'long_answer':
-					echo '<form action="submit.php" method="post">';
-					echo '<label for="question">Enter Question:</label>';
-					echo '<input type="text" name="question" id="question">';
-					echo '<br>';
-					echo '<textarea name="answer" id="answer"></textarea>';
-					echo '<br>';
-					echo '<input type="submit" value="Submit">';
-					echo '</form>';
-					break;
-				default:
-					echo 'Invalid Questionnaire Type';
-			}
-      */
+
+        //short type
+        if($type =='short'){?>
+					<form action="submit.php" method="post">
+              <p> Enter Only Charaters Small or Capital,? , - to create your question</p>
+                <?php for($i =1 ;$i<= $qnum;$i++){?>
+                  <label for="question">Enter Question: <?php echo $i?></label>
+                  <input type="text" name="question<?php echo $i?>" id="question">
+                  
+
+              <?php
+                } //end of the for loop
+                ?>
+                  <input type ='hidden' name= 'type' value='<?php echo $type?>'>
+                  <input type="hidden" name='qnum' value="<?php echo $qnum?>">
+                <input type="hidden" name='unique' value="<?php echo $uniqueNum?>">
+                <input type="submit" value="Submit" name ='done'>
+            </form> <!--end of the form for short-->
+            <?php
+        }
+
+
+
+        //range type
+        if($type =='range'){?>
+					<form action="submit.php" method="post">
+              <p> Enter Only Charaters Small or Capital,? , - to create your question</p>
+                <?php for($i =1 ;$i<= $qnum;$i++){?>
+                  <label for="question">Enter Question: <?php echo $i?></label>
+                  <input type="text" name="question<?php echo $i?>" id="question">
+                  
+
+              <?php
+                } //end of the for loop
+                ?>
+                  <input type ='hidden' name= 'type' value='<?php echo $type?>'>
+                  <input type="hidden" name='qnum' value="<?php echo $qnum?>">
+                <input type="hidden" name='unique' value="<?php echo $uniqueNum?>">
+                <input type="submit" value="Submit" name ='done'>
+            </form> <!--end of the form for short-->
+            <?php
+        }
+
+
+
+
+
+
+
+
+
     }
     else{
       die("Error: please complete 'homePage.php' ");
