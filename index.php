@@ -160,19 +160,23 @@ require('requiredFiles/test_input.php');
           if($rows)
           {
             
-            /*
+          
+            
             //username exits
             if(password_verify($pass,$rows[2]))
             {
-              foreach($rows as $row){
-                if($row[3]=='admin')
+              $_SESSION['activeUser'] = $rows[0];
+              //foreach($rows as $row){
+                if($rows[3]=='admin'){
+                  $_SESSION['admin'] = 1;
                   header("location:HomePage_admin.php");
-                else if($row[3]=='regular')
+                }
+                else if($rows[3]=='regular')
                   header("location:HomePage.php");
-              }
+             // }
 
             } //end of the username and password check 
-            */
+            
            
 
             //another technique

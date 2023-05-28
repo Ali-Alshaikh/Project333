@@ -145,6 +145,9 @@ h2 {
         die("please enter a proper confirm password");
       }
 
+      $hps = password_hash($pass, PASSWORD_DEFAULT);
+
+
     
 
 
@@ -165,12 +168,14 @@ h2 {
               die("Error: this username exits");
             }
           }
+
+
           
 
           $sql = "insert into users values (
                     null,
                     '$uname',
-                    '$pass',
+                    '$hps',
                     'regular'
             )";
             
